@@ -34,6 +34,11 @@ void loop() {
       if (analogRead(sensor_pin) < 1000) digitalWrite(led_pin, HIGH);
       else digitalWrite(led_pin, LOW);
     }
+    else if (message == 'n') {
+       int val = analogRead(sensor_pin);
+       val = map(val,0,1023,100,999);
+       Serial.print(val);
+    }
     else{
       Serial.println("Unknow message");
     }
