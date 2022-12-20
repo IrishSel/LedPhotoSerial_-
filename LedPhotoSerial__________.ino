@@ -14,30 +14,25 @@ void loop() {
   if (Serial.available() > 0){
     char message = Serial.read();
     if (message == 'u'){
-      digitalWrite(led_pin, HIGH);
+      digitalWrite(led_pin, HIGH); // включает светодиод
     } 
     else if (message == 'd'){
-      digitalWrite(led_pin, LOW);
+      digitalWrite(led_pin, LOW); //выключает светодиод
     }
     else if (message == 'f'){
       photocellReading = analogRead(sensor_pin);
       Serial.print("Analog reading = ");
-      Serial.println(photocellReading);
+      Serial.println(photocellReading); // показывает данные освещенности
     }
     else if (message == 'c'){
       while (true){
         convertValue = analogRead(sensor_pin);
-        analogWrite(led_pin, map(convertValue, 0, 255, 100, 1023));
+        analogWrite(led_pin, map(convertValue, 0, 255, 100, 1023)); // меняет яркость в зависимости от освещения
       }
     }
     else if (message == 'e'){
       if (analogRead(sensor_pin) < 1000) digitalWrite(led_pin, HIGH);
-      else digitalWrite(led_pin, LOW);
-    }
-    else if (message == 'n') {
-       int val = analogRead(sensor_pin);
-       val = map(val,0,1023,100,999);
-       Serial.print(val);
+      else digitalWrite(led_pin, LOW); // должен вкл диод при темноте и выкл при свете
     }
     else{
       Serial.println("Unknow message");
