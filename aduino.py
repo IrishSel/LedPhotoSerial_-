@@ -1,7 +1,8 @@
+// не доделали код Работает только 1) вкл 2) выкл 3) менять яркость в зависимости от освещения
 import serial
 import time
 
-lengths = {'s': 3,
+lengths = {'с': 3,
            'u': 0,
            'd': 0}
 
@@ -27,7 +28,7 @@ if __name__ == '__main__':
         inp = input("Enter command: ")
         #length = lengths.get(inp, 17)
         #send(ser, inp.encode(), length)
-        cmd = 's'
+        cmd = 'с'
         val = send(ser, cmd.encode(), lengths[cmd])
 
         if val:
