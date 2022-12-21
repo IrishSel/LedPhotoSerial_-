@@ -27,7 +27,7 @@ void loop() {
     else if (message == 'c'){
       while (true){
         convertValue = analogRead(sensor_pin);
-        analogWrite(led_pin, map(convertValue, 0, 255, 100, 1023)); // меняет яркость в зависимости от освещения
+        analogWrite(led_pin, map(convertValue, 0, 255, 100, 1023)); // меняет яркость в зависимости от освещения 
       }
     }
     else if (message == 'e'){
